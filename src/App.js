@@ -36,9 +36,9 @@ export default function App() {
     setCountdown(5)
   }
   const getNewQuote = () => {
-    fetch('https://api.quotable.io/random?minLength=100')
+    fetch('https://api.quotable.io/quotes/random?minLength=100')
       .then(res => res.json())
-      .then(res => setQuote(res.content))
+      .then(res => setQuote(res[0].content))
       .catch(err => {
         console.log(`ERROR: ${err}`)
         setQuote(startQuote)
